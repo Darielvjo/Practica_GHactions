@@ -2,9 +2,9 @@
   "name": "hola_mundo_ci",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "test": "jest"
-},
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
