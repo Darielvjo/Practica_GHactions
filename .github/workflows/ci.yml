@@ -4,15 +4,18 @@ on:
   push:
     branches:
       - main
-      - dev
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v3
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -21,5 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Fix permissions for Jest
+        run: chmod +x ./node_modules/.bin/jest
+
       - name: Run tests
-        run: npm test
+        run: npx jest
+
